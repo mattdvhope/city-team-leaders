@@ -8,12 +8,12 @@ const IndexPage = () => {
   return (
     <Layout>
       <br/>
-      <h1>Hi {isLoggedIn() ? getUser().name : "people"}</h1>
+      <h1>Hi {isLoggedIn() ? getUser().first_name : "people"}</h1>
       <div>
         {isLoggedIn() ? (
           <div>
             You are logged in, so check your{" "}
-            <Link to="/app/profile">profile</Link>
+            <Link to="/app/dashboard">dashboard</Link>
           </div>
         ) : (
           <div>

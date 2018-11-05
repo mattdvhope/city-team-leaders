@@ -8,25 +8,29 @@ export const getUser = () =>
 const setUser = user =>
   window.localStorage.setItem("gatsbyUser", JSON.stringify(user))
 
-export const handleLogin = ({ email, password }) => {
-  if (email === `johnny@example.org` && password === `pass`) {
-    return setUser({
-      username: `john`,
-      name: `Johnny`,
-      email: `johnny@example.org`,
-    })
-  }
+export const handleLogin = ({ first_name, last_name, email }) => {
+  if (!isBrowser) return false
 
-  return false
+  console.log('first_name:', first_name);
+  console.log('email:', email);
+
+  return setUser({
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+  })
 }
 
 export const isLoggedIn = () => {
   const user = getUser()
 
-  return !!user.username
+  return !!user.email
 }
 
 export const logout = callback => {
   setUser({})
   callback()
 }
+
+// see 'https://www.gatsbyjs.org/docs/authentication-tutorial/'
+// to learn how to set up "LOGIN" in Gatsby 2

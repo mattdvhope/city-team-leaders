@@ -1,88 +1,57 @@
 import React from "react"
 import { navigate } from "gatsby"
+import axios from 'axios';
+import LoginForm from "./loginForm";
 import { handleLogin, isLoggedIn } from "../services/auth"
 
 export default class Login extends React.Component {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
-      window: undefined,
-      email: ``,
-      password: ``
+      email: "",
+      password: "",
     };
   }
 
-  componentDidMount() {
-    this.setState({ window: window });
-    try {
-      const mdbreact = require("mdbreact");
-      this.setState({ mdbreact: mdbreact });
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
   handleUpdate = event => {
-console.log("in handleUpdate");
     this.setState({
       [event.target.name]: event.target.value,
     })
   }
 
   handleSubmit = event => {
-console.log("in handleSubmit");
     event.preventDefault()
-    handleLogin(this.state)
+    let email = this.state.email;
+    email = email.toLocaleLowerCase();
+    const password = this.state.password;
+    const promise = new Promise((resolve, reject) => {
+      resolve(axios.post(`${process.env.GATSBY_API_URL}/sessions`, {email, password}));
+    });
+    promise
+    .then((res) => {
+      const { first_name, last_name, email } = res.data;
+      handleLogin({first_name, last_name, email});
+      navigate(`/app/dashboard`)
+    })
+    .catch((err) => { 
+      console.log("ERROR:", err);
+    });
   }
 
   render() {
-    if (this.state.window) {
-
-      const { Input, Button } = this.state.mdbreact;
-
-      if (isLoggedIn()) {
-        navigate(`/app/profile`)
-      }
-
-      return (
-        <div>
-          <h1>Log in with johnny@example.org</h1>
-          <form
-            method="post"
-            onSubmit={event => {
-              this.handleSubmit(event)
-              navigate(`/app/profile`)
-            }}
-          >
-          <Input
-            onChange={this.handleUpdate}
-            label="Type your email"
-            icon="envelope"
-            group
-            type="email"
-            name="email"
-            validate
-            error="wrong"
-            success="right"
-          />
-          <Input
-            onChange={this.handleUpdate}
-            label="Type your password"
-            icon="lock"
-            group
-            type="password"
-            name="password"
-            validate
-          />
-            <div className="text-center">
-              <Button type="submit">Login</Button>
-            </div>
-          </form>
-        </div>
-      );
-    } else {
-      return <span />
+    if (isLoggedIn()) {
+      navigate(`/app/dashboard`)
     }
 
+    return (
+      <div>
+        <LoginForm
+          handleSubmit={this.handleSubmit}
+          handleUpdate={this.handleUpdate}
+        />
+      </div>
+    )
   }
 }
+// see 'https://www.gatsbyjs.org/docs/authentication-tutorial/'
+// to learn how to set up "LOGIN" in Gatsby 2

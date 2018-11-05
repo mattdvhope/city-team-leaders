@@ -5,7 +5,7 @@ import { getUser, isLoggedIn, logout } from "../services/auth"
 export default () => {
   const content = { message: "", login: true }
   if (isLoggedIn()) {
-    content.message = `Hello, ${getUser().name}`
+    content.message = `Hello, ${getUser().first_name}`
   } else {
     content.message = "You are not logged in"
   }
@@ -23,7 +23,7 @@ export default () => {
       <nav>
         <Link to="/">Home</Link>
         {` `}
-        <Link to="/app/profile">Profile</Link>
+        <Link to="/app/dashboard">Dashboard</Link>
         {` `}
         {isLoggedIn() ? (
           <a
