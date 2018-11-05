@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'gatsby';
+import { navigate, Link } from 'gatsby';
 
 export default class CarouselMdb extends Component {
   constructor(props, context) {
@@ -28,11 +28,35 @@ export default class CarouselMdb extends Component {
         <Container>
           <Row>
             <Col md="6">
-              <form>
+              <form
+                method="post"
+                onSubmit={event => {
+                  this.handleSubmit(event)
+                  navigate(`/app/profile`)
+                }}
+              >
                 <p className="h5 text-center mb-4">Sign in</p>
                 <div className="grey-text">
-                  <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
-                  <Input label="Type your password" icon="lock" group type="password" validate/>
+                  <Input
+                    onChange={this.handleUpdate}
+                    label="Type your email"
+                    icon="envelope"
+                    group
+                    type="email"
+                    name="username"
+                    validate
+                    error="wrong"
+                    success="right"
+                  />
+                  <Input
+                    onChange={this.handleUpdate}
+                    label="Type your password"
+                    icon="lock"
+                    group
+                    type="password"
+                    name="password"
+                    validate
+                  />
                 </div>
                 <div className="text-center">
                   <Button>Login</Button>

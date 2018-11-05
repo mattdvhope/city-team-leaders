@@ -8,8 +8,8 @@ export const getUser = () =>
 const setUser = user =>
   window.localStorage.setItem("gatsbyUser", JSON.stringify(user))
 
-export const handleLogin = ({ username, password }) => {
-  if (username === `john` && password === `pass`) {
+export const handleLogin = ({ email, password }) => {
+  if (email === `johnny@example.org` && password === `pass`) {
     return setUser({
       username: `john`,
       name: `Johnny`,
