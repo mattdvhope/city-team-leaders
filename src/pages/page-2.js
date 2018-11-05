@@ -21,42 +21,24 @@ export default class CarouselMdb extends Component {
   render(){
     if (this.state.window) {
 
-      const { Container, Carousel, CarouselInner, CarouselItem, View } = this.state.mdbreact;
+      const { Container, Row, Col, Input, Button } = this.state.mdbreact;
 
       return(
         <Container>
-
-          <h1>Here is a Carousel</h1>
-
-          <Carousel
-            activeItem={1}
-            length={4}
-            showControls={true}
-            showIndicators={false}
-            className="z-depth-1">
-            <CarouselInner>
-              <CarouselItem itemId="1">
-                <View>
-                  <img style={{maxWidth: `100%`}} src="https://s3-ap-southeast-1.amazonaws.com/cityfront/volunteer-teachers1.jpg" alt=""/>
-                </View>
-              </CarouselItem>
-              <CarouselItem itemId="2">
-                <View>
-                  <img style={{maxWidth: `100%`}} src="https://s3-ap-southeast-1.amazonaws.com/cityfront/volunteer-teachers2.jpg" alt=""/>
-                </View>
-              </CarouselItem>
-              <CarouselItem itemId="3">
-                <View>
-                  <img style={{maxWidth: `100%`}} src="https://s3-ap-southeast-1.amazonaws.com/cityfront/volunteer-teachers3.jpg" alt=""/>
-                </View>
-              </CarouselItem>
-              <CarouselItem itemId="4">
-                <View>
-                  <img style={{maxWidth: `100%`}} src="https://s3-ap-southeast-1.amazonaws.com/cityfront/volunteer-teachers4.jpg" alt=""/>
-                </View>
-              </CarouselItem>
-            </CarouselInner>
-          </Carousel>
+          <Row>
+            <Col md="6">
+              <form>
+                <p className="h5 text-center mb-4">Sign in</p>
+                <div className="grey-text">
+                  <Input label="Type your email" icon="envelope" group type="email" validate error="wrong" success="right"/>
+                  <Input label="Type your password" icon="lock" group type="password" validate/>
+                </div>
+                <div className="text-center">
+                  <Button>Login</Button>
+                </div>
+              </form>
+            </Col>
+          </Row>
         </Container>
       );
     } else {
