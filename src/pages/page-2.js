@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'gatsby';
 
 export default class CarouselMdb extends Component {
   constructor(props, context) {
@@ -39,6 +40,8 @@ export default class CarouselMdb extends Component {
               </form>
             </Col>
           </Row>
+
+          <h1><Link to="/">Return to Home Page</Link></h1>
         </Container>
       );
     } else {
