@@ -36,7 +36,6 @@ export default class LoginForm extends Component {
                 method="post"
                 onSubmit={event => {
                   this.props.handleSubmit(event)
-                  navigate(`/app/dashboard`)
                 }}
               >
                 <br/>

@@ -10,10 +10,6 @@ const setUser = user =>
 
 export const handleLogin = ({ first_name, last_name, email }) => {
   if (!isBrowser) return false
-
-  console.log('first_name:', first_name);
-  console.log('email:', email);
-
   return setUser({
     first_name: first_name,
     last_name: last_name,

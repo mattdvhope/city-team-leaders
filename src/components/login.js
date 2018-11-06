@@ -31,7 +31,7 @@ export default class Login extends React.Component {
     .then((res) => {
       const { first_name, last_name, email } = res.data;
       handleLogin({first_name, last_name, email});
-      navigate(`/app/dashboard`)
+      navigate(`/app/dashboard`);
     })
     .catch((err) => { 
       console.log("ERROR:", err);
@@ -42,6 +42,8 @@ export default class Login extends React.Component {
     if (isLoggedIn()) {
       navigate(`/app/dashboard`)
     }
+
+console.log("in render()");
 
     return (
       <div>
