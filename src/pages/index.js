@@ -17,8 +17,7 @@ const IndexPage = () => {
           </div>
         ) : (
           <div>
-            You should <Link to="/app/login">log in</Link> to see restricted
-            content
+            <h2>You should <Link to="/app/login">log in</Link>.</h2>
           </div>
         )}
       </div>
