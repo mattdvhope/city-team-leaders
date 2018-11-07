@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { navigate } from "gatsby"
 // import { Container, Row, Col, Input, Button } from "mdbreact";
 
 export default class LoginForm extends Component {
