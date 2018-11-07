@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Login Page',
+    title: 'Class Time & Student Info',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
