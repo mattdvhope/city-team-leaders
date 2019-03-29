@@ -33,7 +33,7 @@ export default class ViewClassTimes extends Component {
   filterSortPart(class_times) {
     var class_times_arr = [];
     class_times.forEach(function(class_time) {
-      if (class_time.part === "one" && class_time.completed === false) {
+      if (class_time.completed === false) {
         class_times_arr.push(class_time)
       }
     });
@@ -46,7 +46,7 @@ export default class ViewClassTimes extends Component {
   filterSortDone(class_times) {
     var class_times_arr = [];
     class_times.forEach(function(class_time) {
-      if (class_time.part === "one" && class_time.completed === true) {
+      if (class_time.completed === true) {
         class_times_arr.push(class_time)
       }
     });
