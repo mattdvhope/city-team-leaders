@@ -34,7 +34,6 @@ export default () => {
             }}
 
           >
-
             Logout
           </a>
         ) : null}
