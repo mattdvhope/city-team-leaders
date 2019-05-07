@@ -21,22 +21,25 @@ export default () => {
       <span>{content.message}</span>
 
       <nav>
-        <Link to="/">Home</Link>
-        {` `}
-        <Link to="/app/dashboard">Dashboard</Link>
-        {` `}
-        {isLoggedIn() ? (
-          <a
-            href="/"
-            onClick={event => {
-              event.preventDefault()
-              logout(() => navigate(`/app/login`))
-            }}
-
-          >
-            Logout
-          </a>
-        ) : null}
+        {
+          isLoggedIn() ? (
+            <span>
+              |&nbsp;
+              <Link to="/app/dashboard">Dashboard</Link>
+              &nbsp;|&nbsp;
+              <a
+                href="/"
+                onClick={event => {
+                  event.preventDefault()
+                  logout(() => navigate(`/app/login`))
+                }}
+              >
+                Logout
+              </a>
+              &nbsp;|
+            </span>
+          ) : null
+        }
       </nav>
     </div>
   )
