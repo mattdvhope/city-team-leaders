@@ -25,15 +25,6 @@ var FemaleStyler = styled.span`
   font-size: 180%;
 `
 
-var PhoneError = styled.div`
-  font-size: 0%;
-  margin-top: -25px;
-`
-var EmailError = styled.div`
-  font-size: 0%;
-  margin-top: -25px;
-`
-
 export default class FormsPage extends React.Component  {
   constructor(props) {
     super(props);
@@ -187,17 +178,6 @@ export default class FormsPage extends React.Component  {
     if (this.state.window) {
 
       const { Container, Row, Col, Input, Button } = this.state.mdbreact;
-
-      const children = [];
-
-      function myFunction() {
-          var x = document.getElementById("invalidNickname");
-          if (x.style.display === "none") {
-              x.style.display = "block";
-          } else {
-              x.style.display = "none";
-          }
-      }
 
       return(
         <Container>
