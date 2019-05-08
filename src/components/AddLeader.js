@@ -25,7 +25,7 @@ var FemaleStyler = styled.span`
   font-size: 180%;
 `
 
-export default class AddLeader extends React.Component  {
+export default class FormsPage extends React.Component  {
   constructor(props) {
     super(props);
     this.state = {
