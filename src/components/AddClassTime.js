@@ -4,7 +4,12 @@ import styled from "styled-components";
 import { navigateTo } from "gatsby-link"
 
 var FormTitle = styled.p`
+  margin-top: 3%;
   font-size: 180%;
+`
+var FormSubTitle = styled.p`
+  margin-top: -3%;
+  font-size: 120%;
 `
 
 export default class AddClassTime extends React.Component  {
@@ -80,16 +85,17 @@ export default class AddClassTime extends React.Component  {
             <Col md="12">
 
               <form onSubmit={this.handleSubmit} className='needs-validation' noValidate>
-                <FormTitle className="text-center mb-4">{this.props.title}</FormTitle>
+                <FormTitle className="text-center mb-4">Add a new Class Time</FormTitle>
+                <FormSubTitle className="text-center mb-4">(use examples below the 'SUBMIT' button as templates to copy-paste)</FormSubTitle>
                 <div className="grey-text">
 
-                  <Input onChange={this.handleChange} label="Period (in English) -- '20,25,26,27 June and 2 July, 6:30-8:00pm, part 1'" icon="asterisk" name="period" group type="text" validate error="wrong" success="right" required/>
+                  <Input onChange={this.handleChange} label="Period (in English)" icon="asterisk" name="period" group type="text" validate error="wrong" success="right" required/>
 
-                  <Input onChange={this.handleChange} label="Period (in Thai) -- '20,25,26,27 มิถุนายน และ 2 กรกฎาคม (5 วัน), 18:30-20:00น., สวนที่สอง'" icon="plus" name="period_thai" group type="text" validate error="wrong" success="right" required/>
+                  <Input onChange={this.handleChange} label="Period (in Thai)" icon="plus" name="period_thai" group type="text" validate error="wrong" success="right" required/>
                   
-                  <Input onChange={this.handleChange} label="Order Number -- Choose a number 10 higher than the last current class-time" icon="align-left" name="order_no" group type="text" validate error="wrong" success="right" required/>
+                  <Input onChange={this.handleChange} label="Order Number" icon="align-left" name="order_no" group type="text" validate error="wrong" success="right" required/>
 
-                  <Input onChange={this.handleChange} label="Part Number -- 'one' or 'two' (w/o quote marks)" icon="adjust" name="part" group type="text" validate error="wrong" success="right" required/>
+                  <Input onChange={this.handleChange} label="Part Number" icon="adjust" name="part" group type="text" validate error="wrong" success="right" required/>
 
                   <br/>
 
@@ -97,6 +103,12 @@ export default class AddClassTime extends React.Component  {
                 </div>
               </form>
             </Col>
+          </Row>
+          <Row>
+            <h4>Example of Period (in English) --> 20,25,26,27 June and 2 July, 6:30-8:00pm, part 1</h4>
+            <h4>Example of Period (in Thai) --> 20,25,26,27 มิถุนายน และ 2 กรกฎาคม (5 วัน), 18:30-20:00น., สวนที่สอง</h4>
+            <h4>How to choose Order Number --> Choose a number 10 higher than the lates current class-time</h4>
+            <h4>For Part Number, just type in 'one' or 'two' (w/o quote marks).</h4>
           </Row>
         </Container>
       );
