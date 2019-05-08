@@ -107,7 +107,7 @@ export default class AddClassTime extends React.Component  {
           <Row>
             <h4>Example of Period (in English) --> 20,25,26,27 June and 2 July, 6:30-8:00pm, part 1</h4>
             <h4>Example of Period (in Thai) --> 20,25,26,27 มิถุนายน และ 2 กรกฎาคม (5 วัน), 18:30-20:00น., สวนที่สอง</h4>
-            <h4>How to choose Order Number --> Choose a number 10 higher than the lates current class-time</h4>
+            <h4>How to choose Order Number --> Choose a number 10 higher than the latest current class-time</h4>
             <h4>For Part Number, just type in 'one' or 'two' (w/o quote marks).</h4>
           </Row>
         </Container>
