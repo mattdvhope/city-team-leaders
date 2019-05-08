@@ -36,6 +36,11 @@ export default () => {
         </div>
       </RowStyler>
       <RowStyler className="row">
+        <div className="col-md-12">
+          <Link to="/app/add-class-time">Add Class Time</Link>
+        </div>
+      </RowStyler>
+      <RowStyler className="row">
       </RowStyler>
     </DashStyler>
   )

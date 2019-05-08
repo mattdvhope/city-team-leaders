@@ -5,6 +5,7 @@ import PrivateRoute from "../components/privateRoute"
 import Dashboard from "../components/Dashboard"
 import ViewClassTimes from "../components/ViewClassTimes"
 import AddLeader from "../components/AddLeader"
+import AddClassTime from "../components/AddClassTime"
 import ListOfLeaders from "../components/ListOfLeaders"
 import Login from "../components/login"
 
@@ -14,6 +15,7 @@ export default () => (
       <PrivateRoute path="/app/dashboard" component={Dashboard} />
       <PrivateRoute path="/app/view-class-times" component={ViewClassTimes} />
       <PrivateRoute path="/app/add-leader" component={AddLeader} />
+      <PrivateRoute path="/app/add-class-time" component={AddClassTime} />
       <PrivateRoute path="/app/list-of-leaders" component={ListOfLeaders} />
       <Login path="/app/login" />
     </Router>
