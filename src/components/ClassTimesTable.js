@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import styled from "styled-components";
 
 const HeadEl = styled.div`
@@ -9,7 +10,14 @@ const TCell = styled.div`
   font-size: 120%;
 `
 
-export default class ViewClassTimes extends Component {
+const ArchiveTag = styled.span`
+  font-size: 110%;
+  color: red;
+  font-style: italic;
+  cursor: pointer;
+`
+
+export default class ClassTimesTable extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -29,11 +37,14 @@ export default class ViewClassTimes extends Component {
   }
 
   render() {
+    console.log("in render in ClassTimesTable")
     if (this.state.window) {
       const { Table, TableBody, TableHead } = this.state.mdbreact;
+
       return (
         <div key={this.props.timeKey+"pt1"}>
-          <h3 key={this.props.time.period} value={this.props.time.period}>{this.props.time.period}</h3>
+          <br/>
+          <h4 key={this.props.time.period} value={this.props.time.period}>{this.props.time.period}&nbsp;&nbsp;-->&nbsp;{this.props.time.order_no}&nbsp;&nbsp;<ArchiveTag hidden={this.props.time.completed === true ? true : false} onClick={this.props.handleArchive}>Archive</ArchiveTag></h4>
           <Table striped bordered hover>
             <TableHead>
               <tr>

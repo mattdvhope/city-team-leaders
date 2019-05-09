@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import styled from "styled-components";
+import { navigate } from "gatsby"
 import ClassTimesTable from './ClassTimesTable'
 
 const CTStyler = styled.div`
@@ -21,12 +22,9 @@ export default class ViewClassTimes extends Component {
   componentDidMount() {
     axios.get(`${process.env.GATSBY_API_URL}/class_times.json`)
     .then((response) => {
-      const class_times = this.filterSortPart(response.data);
-      const class_times_done = this.filterSortDone(response.data);
-      this.setState({ class_times: class_times });
-      this.setState({ class_times_done: class_times_done });
+      this.setState({ class_times: this.filterSortPart(response.data) });
+      this.setState({ class_times_done: this.filterSortDone(response.data)});
     });
-
     this.setState({ window: window });
   }
 
@@ -56,6 +54,15 @@ export default class ViewClassTimes extends Component {
     });
   }
 
+  handleArchive(e, id) {
+    e.preventDefault();
+    axios.patch(`${process.env.GATSBY_API_URL}/class_times/${id}`)
+    .then(response => {
+      this.componentDidMount();
+    })
+    .catch(error => console.log(error))
+  }
+
   render() {
     if (this.state.class_times && this.state.class_times_done && this.state.window) {
       return (
@@ -64,7 +71,7 @@ export default class ViewClassTimes extends Component {
           <h1>View Current Class Times</h1>
           {this.state.class_times.map((time, timeKey) => {
             return (
-              <ClassTimesTable time={time} timeKey={timeKey} />
+              <ClassTimesTable handleArchive={e => this.handleArchive(e, time.id)} key={time.id} time={time} timeKey={timeKey} />
             )
           })}
           <br/>
@@ -76,7 +83,7 @@ export default class ViewClassTimes extends Component {
           <h1>View Previous Class Times (most recent on top)</h1>
           {this.state.class_times_done.map((time, timeKey) => {
             return (
-              <ClassTimesTable time={time} timeKey={timeKey} />
+              <ClassTimesTable key={time.id} time={time} timeKey={timeKey} />
             )
           })}
         </CTStyler>
