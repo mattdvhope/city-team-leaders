@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios'
 import styled from "styled-components";
-import { navigateTo } from "gatsby-link"
+import { navigate } from "gatsby"
+import ViewClassTimes from './ViewClassTimes'
 
 var FormTitle = styled.p`
   margin-top: 3%;
@@ -43,7 +44,6 @@ export default class AddClassTime extends React.Component  {
   }
 
   handleChange = e => {
-    console.log(e.target.value)
     this.setState({[e.target.name]: e.target.value});
   }
 
@@ -60,14 +60,11 @@ export default class AddClassTime extends React.Component  {
       part: this.state.part
     })
     .then(response => {
-      console.log(response.data.message)
       return response.data.message;
     })
     .then(message => {
       if (message === "Successful creation of new class time!!") {
-        console.log("SUCCESS!!!");
-        // this.props.toggle();
-        navigateTo('app/view-class-times');
+        navigate('app/view-class-times');
       } else {
         console.log("STILL ERRORS");
       }
@@ -107,9 +104,10 @@ export default class AddClassTime extends React.Component  {
           <Row>
             <h4>Example of Period (in English) --> 20,25,26,27 June and 2 July, 6:30-8:00pm, part 1</h4>
             <h4>Example of Period (in Thai) --> 20,25,26,27 มิถุนายน และ 2 กรกฎาคม (5 วัน), 18:30-20:00น., สวนที่สอง</h4>
-            <h4>How to choose Order Number --> Choose a number 10 higher than the latest current class-time</h4>
+            <h4>How to choose Order Number --> 10 higher than last class time under "View Current Class Times" (That allows you to insert a class time between two you already have scheduled...maybe a difference of 5 [i.e., 150,155,160,etc].)</h4>
             <h4>For Part Number, just type in 'one' or 'two' (w/o quote marks).</h4>
           </Row>
+          <ViewClassTimes />
         </Container>
       );
 
