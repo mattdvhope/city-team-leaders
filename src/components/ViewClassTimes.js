@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import styled from "styled-components";
-import { navigate } from "gatsby"
 import ClassTimesTable from './ClassTimesTable'
 
 const CTStyler = styled.div`
