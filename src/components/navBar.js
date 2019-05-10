@@ -27,6 +27,14 @@ export default () => {
               |&nbsp;
               <Link to="/app/dashboard">Dashboard</Link>
               &nbsp;|&nbsp;
+              <Link to="/app/view-class-times">Class times</Link>
+              &nbsp;|&nbsp;
+              <Link to="/app/add-class-time">Add Class</Link>
+              &nbsp;|&nbsp;
+              <Link to="/app/list-of-leaders">Leaders</Link>
+              &nbsp;|&nbsp;
+              <Link to="/app/add-leader">Add Leader</Link>
+              &nbsp;|&nbsp;
               <a
                 href="/"
                 onClick={event => {
