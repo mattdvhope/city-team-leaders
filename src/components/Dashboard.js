@@ -20,28 +20,34 @@ const RowStyler = styled.div`
 export default () => {
   return (
     <DashStyler className="container">
+
       <RowStyler className="row">
         <div className="col-md-12">
           <Link to="/app/view-class-times">View class times & the students in them</Link>
         </div>
       </RowStyler>
-      <RowStyler className="row">
-        <div className="col-md-12">
-          <Link to="/app/add-leader">Add Leader</Link>
-        </div>
-      </RowStyler>
-      <RowStyler className="row">
-        <div className="col-md-12">
-          <Link to="/app/list-of-leaders">See List of Leaders</Link>
-        </div>
-      </RowStyler>
+
       <RowStyler className="row">
         <div className="col-md-12">
           <Link to="/app/add-class-time">Add Class Time</Link>
         </div>
       </RowStyler>
+
+      <RowStyler className="row">
+        <div className="col-md-12">
+          <Link to="/app/list-of-leaders">See List of Leaders</Link>
+        </div>
+      </RowStyler>
+
+      <RowStyler className="row">
+        <div className="col-md-12">
+          <Link to="/app/add-leader">Add Leader</Link>
+        </div>
+      </RowStyler>
+
       <RowStyler className="row">
       </RowStyler>
+
     </DashStyler>
   )
 }
