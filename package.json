@@ -34,12 +34,11 @@
   "devDependencies": {
     "prettier": "^1.14.2"
   },
+  "engines": {
+    "node" : ">=10.13.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mattdvhope/city-team-leaders"
-  },
-  "engineStrict" : true,
-  "engines": {
-    "node" : ">=10.13.0"
   }
 }
