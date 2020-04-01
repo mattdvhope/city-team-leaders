@@ -38,6 +38,7 @@
     "type": "git",
     "url": "https://github.com/mattdvhope/city-team-leaders"
   },
+  "engineStrict" : true,
   "engines": {
     "node" : ">=10.13.0"
   }
